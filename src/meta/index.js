@@ -1,4 +1,5 @@
-const usersMeta = require('./users')
-const dealershipMeta = require('./dealership')
+const users = require('./users')
+const dealership = require('./dealership')
+const products = require('./products')
 
-module.exports = {...usersMeta, ...dealershipMeta}
+module.exports = {users, dealership, products}

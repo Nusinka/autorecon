@@ -30,6 +30,12 @@ const stationStatusMeta = {
     color: colors.white,
     showStatus: false
   },
+  started: {
+    id: stationStatusTypes.started,
+    name: 'Started',
+    color: colors.silver,
+    showStatus: true
+  },
   active: {
     id: stationStatusTypes.active,
     name: 'Active',
@@ -53,7 +59,7 @@ const stationStatusMeta = {
     name: '',
     color: colors.blue,
     showStatus: false
-  }
+  },
 }
 
 module.exports = {completeName, allStation, stationStatusMeta, stationStatusTypes, notStarted}

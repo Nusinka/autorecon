@@ -1,3 +1,4 @@
 const meta = require('./meta')
+const utils = require('./utils')
 
-module.exports = {...meta}
+module.exports = {meta, utils}

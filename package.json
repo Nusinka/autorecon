@@ -1,6 +1,6 @@
 {
   "name": "@autorecon/lib",
-  "version": "0.0.8",
+  "version": "0.1.3",
   "description": "Common code for autorecon",
   "main": "src/index.js",
   "scripts": {
@@ -13,5 +13,8 @@
     "autorecon"
   ],
   "author": "Francisco and Logan",
-  "license": "private"
+  "license": "private",
+  "dependencies": {
+    "moment": "^2.22.2"
+  }
 }
