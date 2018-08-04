@@ -1,5 +1,5 @@
-const {completeName, notStarted} = require('../meta/dealership')
-const { productStatusTypes, stationStatusMeta } = require('../meta/products');
+const { notStarted } = require('../meta/dealership')
+const { productStatusTypes, stationStatusMeta, completeName } = require('../meta/products');
 const { firebaseTimestampToDate } = require('./firebase')
 
 function getGpsLocation (product) {
@@ -118,8 +118,42 @@ const getTimeDuration = (times, index) => {
   return end.valueOf() - start.valueOf()
 }
 
+const getStationDurationInfo = (product) => {
+  const {times} = product
+  let reworkStatus = false
+  let complete = false
+  const durations = times.reduce((acc, time, index) => {
+    const {timeChecked, stationId} = time
+    if (!acc[stationId]) {
+      acc[stationId] = 0
+    }
+
+    const duration = getTimeDuration(times, index)
+    acc[stationId] += duration
+
+    if (stationId === completeName.id && complete === false) {
+      // if (reworkStatus === false) {
+      complete = true
+      // }
+    }
+
+    if (complete && stationId !== completeName.id) {
+      complete = false
+      if (!reworkStatus) {
+        acc[stationStatusMeta.rework.id] = 0
+        reworkStatus  = true
+      }
+      acc[stationStatusMeta.rework.id] += acc[completeName.id]
+      acc[completeName.id] = 0
+    }
+
+    return acc
+  }, {})
+  return durations
+}
+
 module.exports = {
   getGpsLocation, hasGpsLocation, hasLocation, getLastTime, 
   getCurrentStationId, getStationInfo, getStationStatusMeta,
-  getTimeDuration, getTotalDuration
+  getTimeDuration, getTotalDuration, getStationDurationInfo
 }

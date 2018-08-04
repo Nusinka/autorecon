@@ -43,7 +43,8 @@ const stationStatusTypes = {
   stopped: 'stopped',
   finished: 'finished',
   allFinished: 'allFinished',
-  started: 'started'
+  started: 'started',
+  rework: 'rework'
 }
 
 const stationStatusMeta = {
@@ -106,6 +107,16 @@ const stationStatusMeta = {
     webIcon: {
       name: 'ios-radio-button-on',
       color: colors.green
+    }
+  },
+  rework: {
+    id: stationStatusTypes.rework,
+    name: 'Rework',
+    color: colors.red,
+    showStatus: false,
+    webIcon: {
+      name: 'ios-radio-button-on',
+      color: colors.red
     }
   }
 }
