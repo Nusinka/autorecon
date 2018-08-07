@@ -11,4 +11,9 @@ const userTypes = {
   }
 }
 
-module.exports = {userTypes}
+const userStatusTypes = {
+  active: {id: 'active'},
+  deleted: {id: 'deleted'}
+}
+
+module.exports = {userTypes, userStatusTypes}
