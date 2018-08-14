@@ -1,3 +1,3 @@
-const dealershipMeta = require('./stations')
+const stations = require('./stations');
 
-module.exports = {dealershipMeta}
+module.exports = {stations};
