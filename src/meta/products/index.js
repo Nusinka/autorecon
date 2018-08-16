@@ -27,6 +27,7 @@ const productActions = {
   initial: {name: 'initial'},
   initialMove: {name: 'initialMove'},
   initialUpdateLocation: {name: 'initialUpdateLocation'},
+  initialRestart: {name: 'initialRestart'},
   stop: {name: 'stop'},
   resume: {name: 'resume'},
   move: {name: 'move'},
