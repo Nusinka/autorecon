@@ -1,5 +1,4 @@
-const { notStarted } = require('../meta/dealership')
-const { productStatusTypes, stationStatusMeta, completeName } = require('../meta/products');
+const { notStarted, productStatusTypes, stationStatusMeta, completeName, skipped } = require('../meta/products');
 const { firebaseTimestampToDate } = require('./firebase')
 
 function getGpsLocation (product) {
@@ -74,8 +73,10 @@ const getStationInfo = (product, dealerStations) => {
   const currentStationId = getCurrentStationId(product)
   if (product.status === notStarted.id) {
     return notStarted
-  } else if (currentStationId === completeName.id || product.status === productStatusTypes.skipped) {
+  } else if (currentStationId === completeName.id) {
     return completeName
+  } else if (product.status === productStatusTypes.skipped) {
+    return skipped
   } else {
     const stationInfo = dealerStations[currentStationId]
     return stationInfo
@@ -91,11 +92,16 @@ const getStationStatusMeta = (product, dealerStations) => {
     return stationStatusMeta[currentStation.status]
   } else if (status === productStatusTypes.completed) {
     return stationStatusMeta.allFinished 
+  } else if (status === productStatusTypes.skipped) {
+    return stationStatusMeta.skipped
   }
   return {}
 }
 
 const getTotalDuration = (product) => {
+  if (product.status === productStatusTypes.skipped) {
+    return 0
+  }
   const start = firebaseTimestampToDate(product.timeStarted)
   let end
   if (product.timeCompleted) {

@@ -5,6 +5,21 @@ const completeName = {
   name: 'Completed'
 }
 
+const notStarted = {
+  id: 'notStarted',
+  name: 'Not Started'
+}
+
+const allStation = {
+  id: 'all',
+  name: 'All'
+}
+
+const skipped = {
+  id: 'skipped',
+  name: ''
+}
+
 const entryTypes = {
   selected: {
     name: 'selected'
@@ -45,7 +60,8 @@ const stationStatusTypes = {
   finished: 'finished',
   allFinished: 'allFinished',
   started: 'started',
-  rework: 'rework'
+  rework: 'rework',
+  skipped: 'skipped'
 }
 
 const stationStatusMeta = {
@@ -119,6 +135,16 @@ const stationStatusMeta = {
       name: 'ios-radio-button-on',
       color: colors.red
     }
+  },
+  skipped: {
+    id: stationStatusTypes.skipped,
+    name: '',
+    color: colors.red,
+    showStatus: false,
+    webIcon: {
+      name: 'ios-alert',
+      color: colors.red
+    }
   }
 }
 
@@ -136,4 +162,8 @@ const productStatusTypes = {
   skipped: 'skipped'
 }
 
-module.exports = {completeName, entryTypes, scanTypes, productActions, stationStatusTypes, stationStatusMeta, timesTypes, productStatusTypes}
+module.exports = {
+  allStation, notStarted, completeName, 
+  entryTypes, scanTypes, productActions, productStatusTypes,
+  stationStatusTypes, stationStatusMeta, timesTypes, skipped
+}
