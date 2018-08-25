@@ -159,7 +159,8 @@ const productStatusTypes = {
   notStarted: 'notStarted',
   inProgress: 'inProgress',
   completed: 'completed',
-  skipped: 'skipped'
+  skipped: 'skipped',
+  wholesale: 'wholesale'
 }
 
 module.exports = {

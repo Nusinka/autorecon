@@ -62,4 +62,10 @@ const stationStatusMeta = {
   },
 }
 
-module.exports = {completeName, allStation, stationStatusMeta, stationStatusTypes, notStarted}
+module.exports = {
+  completeName, 
+  allStation, 
+  stationStatusMeta, 
+  stationStatusTypes, 
+  notStarted
+}
