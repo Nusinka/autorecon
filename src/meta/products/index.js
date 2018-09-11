@@ -142,7 +142,7 @@ const stationStatusMeta = {
     color: colors.red,
     showStatus: false,
     webIcon: {
-      name: 'ios-alert',
+      name: 'ios-alert',  
       color: colors.red
     }
   }
@@ -162,6 +162,8 @@ const productStatusTypes = {
   skipped: 'skipped',
   wholesale: 'wholesale'
 }
+
+
 
 module.exports = {
   allStation, notStarted, completeName, 
