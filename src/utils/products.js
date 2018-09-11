@@ -86,8 +86,10 @@ const getStationInfo = (product, dealerStations) => {
 const getStationStatusMeta = (product, dealerStations) => {
   const stations = product.stations || {}
   const status = product.status
-  const currentStationId = getStationInfo(product, dealerStations).id
-  const currentStation = stations[currentStationId]
+  const currentDealerStation = getStationInfo(product, dealerStations)
+
+  const currentDealerStationId = currentDealerStation && currentDealerStation.id
+  const currentStation = stations[currentDealerStationId]
   if (currentStation) {
     return stationStatusMeta[currentStation.status]
   } else if (status === productStatusTypes.completed) {

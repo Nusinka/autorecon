@@ -1,4 +1,4 @@
-const userTypes = {
+export const userTypes = {
   employee: {
     id: 'employee',
     name: 'Employee',
@@ -8,6 +8,11 @@ const userTypes = {
     id: 'manager',
     name: 'Manager',
     level: 1
+  },
+  admin: {
+    id: 'admin',
+    name: 'Admin',
+    level: 2
   }
 }
 
