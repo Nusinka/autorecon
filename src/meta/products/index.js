@@ -163,10 +163,16 @@ const productStatusTypes = {
   wholesale: 'wholesale'
 }
 
+const productFeedStatusTypes = {
+  missingFeedInfo: {
+    id: 'missingFeedInfo'
+  }
+}
 
 
 module.exports = {
   allStation, notStarted, completeName, 
   entryTypes, scanTypes, productActions, productStatusTypes,
-  stationStatusTypes, stationStatusMeta, timesTypes, skipped
+  stationStatusTypes, stationStatusMeta, timesTypes, skipped,
+  productFeedStatusTypes
 }
