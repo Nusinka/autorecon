@@ -18,7 +18,7 @@
   "license": "UNLICENSED",
   "dependencies": {
     "cross-fetch": "^2.2.2",
-    "moment": "^2.22.2"
+    "moment": "^2.29.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
